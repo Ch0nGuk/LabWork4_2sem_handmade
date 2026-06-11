@@ -14,5 +14,5 @@ public:
     virtual const T& Get(const Ordinal& index) const = 0;
     virtual const Ordinal GetOrdinalLength() const = 0;
     virtual const Cardinal GetCardinalLength() const = 0;
-    virtual const size_t GetMaterializedCount() const = 0;
+    virtual size_t GetMaterializedCount() const = 0;
 };

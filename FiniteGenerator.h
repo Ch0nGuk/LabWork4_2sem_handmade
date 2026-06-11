@@ -68,7 +68,7 @@ public:
         return Cardinal::Finite(static_cast<size_t>(data.GetSize()));
     }
 
-    const size_t GetMaterializedCount() const override
+    size_t GetMaterializedCount() const override
     {
         return static_cast<size_t>(data.GetSize());
     }

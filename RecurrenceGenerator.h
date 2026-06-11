@@ -4,10 +4,10 @@
 #include "Cardinal.h"
 #include "Sequence.h"
 #include "Generator.h"
-#include "MutableArraySequence.h"
+#include "ListSequence.h"
 
 #include <functional> // для std::function
-#include <stdexcept>  // для ошибок
+#include <stdexcept>  // для вброса исключений
 #include <stddef.h>   // для size_t
 #include <limits>     // для std::numeric_limits
 
@@ -77,7 +77,8 @@ public:
 
 
 private:
-    mutable MutableArraySequence<T> cache; // mutable значит что можно изменять это поле даже внутри const-метода
-    std::function<T(const Sequence<T>&)> rule; // rule хранит функцию вида T SomeRule(const Sequence<T>& sequence);
-                                               // const Sequence, потому что здесь эта последовательность только для чтения
+    std::function<T(const Sequence<T>&)> rule; 
+    mutable ListSequence<T> cache; // mutable значит что можно изменять это поле даже внутри const-метода
+                                   // rule хранит функцию вида T SomeRule(const Sequence<T>& sequence);
+                                   // const Sequence, потому что здесь эта последовательность только для чтения
 };
