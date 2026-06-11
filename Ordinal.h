@@ -131,6 +131,23 @@ public:
         return Compare(other) >= 0;
     }
 
+    Ordinal RemovePrefix(Ordinal prefix) const // Убрать префикс у ординала. 
+    // Например, у w*3+4 убрать w+5, получить X, тогда w+5 + X = w*3 + 4, то есть X = w*2 + 4
+    // нужно в ConcatGenerator, когда Get перенаправляется в правую часть и у индекса вычитается ординальная длина левой части
+    {
+        if (*this < prefix)
+        {
+            throw std::out_of_range("Prefix greater than this");
+        }
+
+        if (omega_ == prefix.omega_)
+        {
+            return Ordinal::Finite(value_ - prefix.value_);
+        }
+
+        return Ordinal::OmegaTimesPlus(omega_ - prefix.omega_, value_);
+    }
+
 private:
     size_t omega_;
     size_t value_;

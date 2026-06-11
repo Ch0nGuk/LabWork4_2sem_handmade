@@ -8,7 +8,7 @@
 
 #include <functional> // для std::function
 #include <stdexcept>  // для вброса исключений
-#include <stddef.h>   // для size_t
+#include <cstddef>   // для size_t
 #include <limits>     // для std::numeric_limits
 #include <utility>    // для std::move
 
@@ -70,12 +70,6 @@ public:
     {
         return Cardinal::Infinity();
     }
-
-    size_t GetMaterializedCount() const override
-    {
-        return static_cast<size_t>(cache.GetLength());
-    }
-
 
 private:
     std::function<T(const Sequence<T>&)> rule; 

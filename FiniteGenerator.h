@@ -8,6 +8,7 @@
 
 #include <stdexcept> // для вброса исключений
 #include <utility> // для std::move()
+#include <cstddef> // для size_t
 
 template <class T>
 class FiniteGenerator : public Generator<T>
@@ -66,11 +67,6 @@ public:
     Cardinal GetCardinalLength() const override
     {
         return Cardinal::Finite(static_cast<size_t>(data.GetSize()));
-    }
-
-    size_t GetMaterializedCount() const override
-    {
-        return static_cast<size_t>(data.GetSize());
     }
 
 private:
