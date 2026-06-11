@@ -28,7 +28,7 @@ public:
 
         Ordinal residual = index.RemovePrefix(left_->GetOrdinalLength()); // убираем у индекса длину левой части
 
-        if (residual > right_->GetOrdinalLength())
+        if (residual >= right_->GetOrdinalLength())
         {
             throw std::out_of_range("Index out of range");
         }
