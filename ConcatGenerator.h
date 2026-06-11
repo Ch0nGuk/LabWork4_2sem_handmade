@@ -26,9 +26,9 @@ public:
             return left_->Get(index);
         }
 
-        Ordinal residual = index.RemovePrefix(left->GetOrdinalLength()); // убираем у индекса длину левой части
+        Ordinal residual = index.RemovePrefix(left_->GetOrdinalLength()); // убираем у индекса длину левой части
 
-        if (residual > right_.GetOrdinalLength())
+        if (residual > right_->GetOrdinalLength())
         {
             throw std::out_of_range("Index out of range");
         }
@@ -43,7 +43,7 @@ public:
 
     Cardinal GetCardinalLength() const override
     {
-        return left_->GetCardinalLength().Add(right_.GetCardinalLength());
+        return GetOrdinalLength().ToCardinal();
     }
 
 private:
