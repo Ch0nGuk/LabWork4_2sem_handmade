@@ -3,8 +3,8 @@
 #include "Generator.h"
 #include "Ordinal.h"
 #include "Cardinal.h"
-#include "DynamicArray.h"
-#include "Sequence.h"
+#include "Laba2/DynamicArray.h"
+#include "Laba2/Sequence.h"
 
 #include <stdexcept> // для вброса исключений
 #include <utility> // для std::move()
@@ -58,12 +58,12 @@ public:
         return data.Get(static_cast<int>(finite_index));
     }
 
-    const Ordinal GetOrdinalLength() const override
+    Ordinal GetOrdinalLength() const override
     {
         return Ordinal::Finite(static_cast<size_t>(data.GetSize()));
     }
 
-    const Cardinal GetCardinalLength() const override
+    Cardinal GetCardinalLength() const override
     {
         return Cardinal::Finite(static_cast<size_t>(data.GetSize()));
     }

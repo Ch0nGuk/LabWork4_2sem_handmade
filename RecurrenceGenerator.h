@@ -2,14 +2,15 @@
 
 #include "Ordinal.h"
 #include "Cardinal.h"
-#include "Sequence.h"
+#include "Laba2/Sequence.h"
 #include "Generator.h"
-#include "ListSequence.h"
+#include "Laba2/ListSequence.h"
 
 #include <functional> // для std::function
 #include <stdexcept>  // для вброса исключений
 #include <stddef.h>   // для size_t
 #include <limits>     // для std::numeric_limits
+#include <utility>    // для std::move
 
 template <class T> 
 class RecurrenceGenerator : public Generator<T>
@@ -60,12 +61,12 @@ public:
         return cache.Get(int_index);
     }
 
-    const Ordinal GetOrdinalLength() const override
+    Ordinal GetOrdinalLength() const override
     {
         return Ordinal::Omega();
     }
 
-    const Cardinal GetCardinalLength() const override
+    Cardinal GetCardinalLength() const override
     {
         return Cardinal::Infinity();
     }

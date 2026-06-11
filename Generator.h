@@ -12,7 +12,7 @@ public:
     virtual ~Generator() {}
 
     virtual const T& Get(const Ordinal& index) const = 0;
-    virtual const Ordinal GetOrdinalLength() const = 0;
-    virtual const Cardinal GetCardinalLength() const = 0;
+    virtual Ordinal GetOrdinalLength() const = 0;
+    virtual Cardinal GetCardinalLength() const = 0;
     virtual size_t GetMaterializedCount() const = 0;
 };

@@ -132,8 +132,8 @@ public:
     }
 
 private:
-    size_t value_;
     size_t omega_;
+    size_t value_;
 
     Ordinal(size_t omega, size_t value) : omega_(omega), value_(value) {} // приватный конструктор, чтобы юзер работал через фабрики 
 
